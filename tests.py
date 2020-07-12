@@ -1,4 +1,4 @@
-from domain.ball import Ball, Coordinate, Direction, Step, Table
+from domain.ball import Ball, CanNotGoalException, Coordinate, Direction, Step, Table
 import unittest
 
 
@@ -60,6 +60,11 @@ class TestBall(unittest.TestCase):
         for expected_step, actual_step in zip(expected_steps, ball.simulate_steps()):
             with self.subTest("各ステップが正しいこと"):
                 self.assertEqual(expected_step, actual_step)
+
+        with self.subTest("CanNotGoalExceptionが発生すること"):
+            with self.assertRaises(CanNotGoalException):
+                ball = Ball(table, start_coordinate, start_direction, goal_coordinate)
+                list(ball.simulate_steps())
 
 
 if __name__ == "__main__":
