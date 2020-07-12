@@ -1,7 +1,7 @@
 import argparse
 from typing import Coroutine, List
 
-from domain.ball import Ball, Direction, Coordinate, Table
+from domain.ball import Ball, CanNotGoalException, Direction, Coordinate, Table
 
 
 def parse_table(value: str) -> Table:
@@ -48,8 +48,16 @@ def main():
     ball = Ball(
         args.table, args.start_coordinate, args.start_direction, args.goal_coordinate
     )
-    for step in ball.simulate_steps():
-        print(step)
+
+    try:
+        for step in ball.simulate_steps():
+            print(
+                f"ステップ数: {step.count}, 座標: ({step.coordinate.x}, {step.coordinate.y})"
+            )
+    except CanNotGoalException:
+        print("ゴールできませんでした。")
+    else:
+        print("ゴール！")
 
 
 if __name__ == "__main__":
