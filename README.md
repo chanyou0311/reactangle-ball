@@ -27,7 +27,7 @@
 ### 動作環境
 
 - Python >= 3.7
-- Pipenv (for test script)
+- Pipenv (for lint)
 
 ### スクリプトの実行
 
@@ -79,4 +79,15 @@ optional arguments:
                         開始時の座標
   -sd START_DIRECTION, --start_direction START_DIRECTION
                         開始時の方向
+```
+
+## テスト実行方法
+
+```
+$ python tests.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
 ```
