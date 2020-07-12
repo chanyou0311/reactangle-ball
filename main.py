@@ -16,10 +16,6 @@ def parse_direction(value: str) -> Direction:
     return Direction.from_str(value)
 
 
-def choices_direction() -> List[str]:
-    return Direction.get_all_names()
-
-
 def main():
     parser = argparse.ArgumentParser(description="ビリヤードが跳ね返って穴に落ちるまでのシミュレーション")
 

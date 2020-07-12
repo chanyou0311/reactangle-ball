@@ -27,10 +27,6 @@ class Direction(Enum):
         raise ValueError
 
     @classmethod
-    def get_all_names(cls) -> List[str]:
-        return list(map(lambda d: d.name, cls))
-
-    @classmethod
     def get_all_directions(cls) -> List["Direction"]:
         return [
             cls.UPPER_RIGHT,
